@@ -7,7 +7,7 @@ using namespace std;
 
 Party::Party() {
 	this->m_name = "party";
-	this->m_description = "Active/Desactive les parametres de parties";
+	this->m_description = I18n::get_word("cmd_party_desc");
 	this->m_has_party = false; /* by default in discord.h */
 }
 
@@ -16,17 +16,17 @@ void Party::run(string input) {
 
 	if (!this->m_has_party) {
 		string party_in;
-		cout << ConsoleColors::colorize(LIGHTGRAY) + "Dans le groupe : ";
+		cout << ConsoleColors::colorize(LIGHTGRAY) + I18n::get_word("cmd_party_in_text");
 		ConsoleColors::reset();
 		getline(cin, party_in);
 
 		string party_max;
-		cout << ConsoleColors::colorize(LIGHTGRAY) + "Dans le groupe (max) : ";
+		cout << ConsoleColors::colorize(LIGHTGRAY) + I18n::get_word("cmd_party_max_text");
 		ConsoleColors::reset();
 		getline(cin, party_max);
 
 		string party_description;
-		cout << ConsoleColors::colorize(LIGHTGRAY) + "Description du groupe : ";
+		cout << ConsoleColors::colorize(LIGHTGRAY) + I18n::get_word("cmd_party_desc_text");
 		ConsoleColors::reset();
 		getline(cin, party_description);
 

@@ -16,7 +16,7 @@ string Command::get_description() {
 }
 
 void Command::run(string input) {
-	cout << ConsoleColors::colorize(DARKGRAY) + "Aide : ";
+	cout << ConsoleColors::colorize(DARKGRAY) + I18n::get_word("cmd_help");
 	cout << ConsoleColors::colorize(LIGHTGRAY) + this->m_description << endl;
 	/* calls subclass m_description thanks c++ */
 }

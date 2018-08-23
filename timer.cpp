@@ -6,7 +6,7 @@ using namespace std;
 
 Timer::Timer() {
 	this->m_name = "timer";
-	this->m_description = "Permet d'activer/desactiver le timer\nMode start: Le timer commence comme un chronomètre\nMode end: Le timer s'arrête a un moment précis";
+	this->m_description = I18n::get_word("cmd_timer_desc");
 }
 
 void Timer::run(string input) {
@@ -15,7 +15,7 @@ void Timer::run(string input) {
 		Console::get_discord_instance().toggle_timer(off, 0);
 		return;
 	}
-	cout << ConsoleColors::colorize(LIGHTGRAY) + "Choisir le mode (start/end) : ";
+	cout << ConsoleColors::colorize(LIGHTGRAY) + I18n::get_word("cmd_timer_choose_mode");
 	ConsoleColors::reset();
 	string chosen_mode;
 	getline(cin, chosen_mode);
@@ -24,7 +24,7 @@ void Timer::run(string input) {
 		Console::get_discord_instance().toggle_timer(start, 0);
 	}
 	else {
-		cout << ConsoleColors::colorize(LIGHTGRAY) + "S'arreter dans (min) : ";
+		cout << ConsoleColors::colorize(LIGHTGRAY) + I18n::get_word("cmd_timer_choose_stop");
 		ConsoleColors::reset();
 		string timer_end;
 		getline(cin, timer_end);

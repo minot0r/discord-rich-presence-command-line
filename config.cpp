@@ -6,7 +6,7 @@ using namespace std;
 
 Config::Config() {
 	this->m_name = "config";
-	this->m_description = "Permet de voir la configuration du DRPT";
+	this->m_description = I18n::get_word("cmd_config_desc");
 }
 
 void Config::run(string input) {
