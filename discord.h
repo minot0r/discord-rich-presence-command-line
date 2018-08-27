@@ -24,6 +24,7 @@ class Discord {
 		void change_id(string new_app_id);
 		string get_presence_text();
 		bool is_timer_on();
+		bool is_default_app_id();
 		void send_presence(const string &details);
 		void on_command(const string& input);
 		void import_config();

@@ -8,11 +8,12 @@ Image::Image() {
 
 void Image::run(string input) {
 	Command::run(input);
+	bool is_default = Console::get_discord_instance().is_default_app_id();
 	vector<string> allowed = { "dev", "fps", "mmo", "moba", "shrug", "none" };
 	string chosen_image;
-	cout << I18n::get_word("cmd_image_image");
+	cout << I18n::get_word(is_default ? "cmd_image_ask_default" : "cmd_image_ask");
 	getline(cin, chosen_image);
-	if (!(find(allowed.begin(), allowed.end(), chosen_image) != allowed.end()) || chosen_image == "none") {
+	if ((!(find(allowed.begin(), allowed.end(), chosen_image) != allowed.end()) || chosen_image == "none") && is_default) {
 		Console::get_discord_instance().set_image("");
 		return;
 	}
